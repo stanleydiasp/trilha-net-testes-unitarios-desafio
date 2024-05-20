@@ -1,4 +1,5 @@
 using TestesUnitarios.Desafio.Console.Services;
+using Xunit.Sdk;
 
 namespace TestesUnitarios.Desafio.Tests;
 
@@ -44,11 +45,14 @@ public class ValidacoesListaTests
         var numeroParaProcurar = 10;
 
         // Act
-
+        var resultado = _validacoes.ListaContemDeterminadoNumero(lista, numeroParaProcurar);
         // Assert
+
+        Assert.False(resultado);
     }
 
     //TODO: Corrigir a anotação [Fact]
+    [Fact]
     public void DeveMultiplicarOsElementosDaListaPor2()
     {
         //TODO: Implementar método de teste
@@ -59,7 +63,11 @@ public class ValidacoesListaTests
         
         // Act
 
+        var resultado = _validacoes.MultiplicarNumerosLista(lista, 2);
         // Assert
+
+        Assert.Equal(resultado, resultadoEsperado);
+
     }
 
     [Fact]
@@ -71,10 +79,10 @@ public class ValidacoesListaTests
         var lista = new List<int> { 5, -1, -8, 9 };
 
         // Act
-
+        var resultado = _validacoes.RetornarMaiorNumeroLista(lista);
         // Assert
         //TODO: Corrigir o Assert.Equal com base no retorno da chamada ao método
-        Assert.Equal(9, 9);
+        Assert.Equal(resultado, 9);
     }
 
     [Fact]
@@ -90,6 +98,6 @@ public class ValidacoesListaTests
 
         // Assert
         //TODO: Corrigir o Assert.Equal com base no retorno da chamada ao método
-        Assert.Equal(-8, -8);
+        Assert.Equal(resultado, -8);
     }
 }
